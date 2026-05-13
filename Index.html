@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Central Grosir</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HOME -->
+  <div class="home" id="homePage">
+
+    <img
+      src="logo.png"
+      class="logo-toko"
+    >
+
+    <h1>Central Grosir</h1>
+
+    <p>Harga bersahabat, belanja lebih hemat</p>
+
+    <button onclick="mulaiBelanja()">
+      Mulai Berbelanja
+    </button>
+
+  </div>
+
+  <!-- SHOP -->
+  <div class="shop" id="shopPage">
+
+    <div class="topbar">
+
+      <h1 class="judul">
+        Daftar Barang Grosir
+      </h1>
+
+      <div class="top-buttons">
+
+        <button
+          class="edit-btn"
+          onclick="simpanData()"
+          style="background:#16a34a;"
+        >
+          Simpan
+        </button>
+
+        <button
+          class="edit-btn"
+          onclick="bukaHistory()"
+          style="background:#2563eb;"
+        >
+          History
+        </button>
+
+        <button
+          class="edit-btn"
+          id="btnEdit"
+          onclick="toggleEdit()"
+        >
+          Edit
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="tambah-produk" id="panelTambah">
+
+      <h2>Tambah Barang Baru</h2>
+
+      <input
+        type="text"
+        id="namaBaru"
+        placeholder="Nama Barang"
+      >
+
+      <input
+        type="text"
+        id="hargaBaru"
+        placeholder="Harga Barang"
+        oninput="formatHargaInput(this)"
+      >
+
+      <input
+        type="file"
+        id="gambarBaru"
+        accept="image/*"
+      >
+
+      <button onclick="tambahProduk()">
+        Tambah Produk
+      </button>
+
+    </div>
+
+    <div
+      class="produk-container"
+      id="produkContainer"
+    ></div>
+
+    <div class="checkout">
+
+      <h2>Total Belanja</h2>
+
+      <button onclick="hitungTotal()">
+        Hitung Total Belanja
+      </button>
+
+      <input
+        type="text"
+        id="uangBayar"
+        placeholder="Masukkan uang bayar"
+        oninput="formatHargaInput(this)"
+      >
+
+      <button onclick="hitungKembalian()">
+        Hitung Kembalian
+      </button>
+
+      <button
+        onclick="resetBelanja()"
+        style="background:#dc2626;"
+      >
+        Reset Belanja
+      </button>
+
+      <div class="hasil">
+
+        <p>
+          <strong>Total Belanja:</strong>
+          <span id="totalBelanja">Rp0</span>
+        </p>
+
+        <p>
+          <strong>Uang Kembalian:</strong>
+          <span id="kembalian">Rp0</span>
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- HISTORY -->
+  <div class="shop" id="historyPage">
+
+    <div class="topbar">
+
+      <h1 class="judul">
+        History Belanja
+      </h1>
+
+      <button
+        class="edit-btn"
+        onclick="kembaliKeShop()"
+      >
+        Back
+      </button>
+
+    </div>
+
+    <div id="historyContainer"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
